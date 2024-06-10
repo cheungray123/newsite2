@@ -1,0 +1,36 @@
+:root {
+	--color-bg: #f2f6ff;
+	--color-text: #333;
+	--color-primary: #4fd675;
+}
+:root.dark {
+	--color-bg: #212121;
+}
+body {
+	--at-apply: antialiased bg-[var(--color-bg)];
+	background-image: url('grain.png');
+	background-size: 300px 300px;
+	background-position: 0 0;
+}
+::selection {
+	--at-apply: bg-green-500 text-white;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+.dark::view-transition-old(root) {
+	z-index: 1;
+}
+.dark::view-transition-new(root) {
+	z-index: 999;
+}
+
+::view-transition-old(root) {
+	z-index: 999;
+}
+::view-transition-new(root) {
+	z-index: 1;
+}
